@@ -66,8 +66,8 @@ export default {
     </div>
     <div id="content">
       <transition name="content_t">
-        <div v-if="content_var">
-          <VerticalSeparator :size="200" />
+        <div v-if="content_var" id="content_internal">
+          <!--<VerticalSeparator :size="200" />-->
           <div class="reviews">
             <div class="card" style="width: 20rem">
               <div class="card-body">
@@ -128,10 +128,91 @@ export default {
               </div>
             </div>
           </div>
+          <div class="vr" style="height: 5em"></div>
+          <!--<VerticalSeparator :size="200" />-->
           <div id="transcription">
             <p>plaːtə</p>
           </div>
-          <p>This is the only right phonetic transcription of this surname</p>
+          <h1>This is the only right phonetic transcription of this surname</h1>
+          <h3>Try to pronounce it yourself</h3>
+          <h3>This should sound light and fresh</h3>
+          <br />
+          <h3>
+            A lot of people say that you can get a feeling of the light breeze of the summer evening
+          </h3>
+          <h3>if you pronounce this surname completely right</h3>
+          <div class="vr" style="height: 10em"></div>
+
+          <p style="font-size: 5rem">The Terrible Mistake</p>
+          <img alt="plate" src="@/assets/plate.png" width="512" height="512" />
+          <p style="font-size: 15rem">No</p>
+          <h3>The 'pleɪt' variation is completely wrong. This should be avoided.</h3>
+          <h3>It's fine if you used this pronounciation before</h3>
+          <h3>This is why this course was created</h3>
+          <h2>Now you are a better person</h2>
+          <div class="vr" style="height: 10em"></div>
+
+          <p style="font-size: 5rem">Exercise 1</p>
+          <h3>Say 'plaːtə' ten times</h3>
+          <div class="vr" style="height: 10em"></div>
+
+          <p style="font-size: 5rem">Exercise 2</p>
+          <h3>Teach your friend how to pronounce 'Plate' correctly</h3>
+          <div class="vr" style="height: 10em"></div>
+
+          <p style="font-size: 5rem">Deep dive into Russian language</p>
+          <p style="font-size: 3rem">Section 1: Writing</p>
+          <p style="font-size: 15rem">Плат<span class="text-danger">э</span></p>
+          <h3>The right writing looks like this</h3>
+          <h3>
+            Do not use the terrible 'Плат<span class="text-danger">е</span>' form. It looks
+            unnatural.
+          </h3>
+          <div class="vr" style="height: 5em"></div>
+
+          <p style="font-size: 3rem">Section 2: Reading</p>
+          <p style="font-size: 15rem">Плáтэ</p>
+          <h3>Do not rush here</h3>
+          <h3>
+            Take a slow and clear look at the word and try to understand where to put an accent
+          </h3>
+          <div class="vr" style="height: 10em"></div>
+
+          <p class="fs-1">
+            The natural feeling of beauty should guide you when you write or say this surename in
+            any language.
+          </p>
+          <div class="vr" style="height: 10em"></div>
+
+          <p style="font-size: 5rem">A History Behind the Name</p>
+          <p class="fs-1">
+            A lot of historical figures were honored to have this name. They left a huge impart on
+            our world, prooving the fact that only a remarkable person can have such a name.
+          </p>
+          <div class="vr" style="height: 2em"></div>
+          <img alt="plate" src="@/assets/ludwig_plate.jpeg" width="512" height="512" />
+          <p class="fs-1">Ludwig Hermann Plate</p>
+          <p class="fs-2">Zoologist</p>
+          <div class="vr" style="height: 1em"></div>
+          <img alt="plate" src="@/assets/Jeff_plate.jpeg" width="512" height="512" />
+          <p class="fs-1">Jeff Plate</p>
+          <p class="fs-2">Heavy metal drummer</p>
+          <div class="vr" style="height: 1em"></div>
+          <img alt="plate" src="@/assets/Chis_plate.jpeg" width="512" height="700" />
+          <p class="fs-1">Christina Plate</p>
+          <p class="fs-2">German actress</p>
+
+          <div class="vr" style="height: 1em"></div>
+          <img alt="plate" src="@/assets/Liolaemus_platei.jpg" width="512" height="512" />
+          <p class="fs-1">Liolaemus platei</p>
+          <p class="fs-2">Braided tree iguana named in honor of Ludwig Plate</p>
+          <div class="vr" style="height: 10em"></div>
+
+          <p class="fs-1">"Knowledge forms a person"</p>
+          <div class="vr" style="height: 10em"></div>
+
+          <p class="fs-5">Made by Alex Plate</p>
+          <p class="fs-6">All rights hopefully reserved</p>
         </div>
       </transition>
     </div>
@@ -181,6 +262,7 @@ p {
   display: flex;
   justify-content: center;
   font-size: 10rem;
+  width: 100%;
   /*  margin-block-end: 20px;*/
   /*  margin-block-start: 20px;*/
 }
@@ -190,13 +272,28 @@ p {
   /*  justify-content: center;*/
 }
 
+#content_internal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /*  align-content: center;*/
+  /*  flex-wrap: wrap;*/
+}
+
 .reviews {
+  width: 100%;
   display: flex;
   justify-content: space-around;
 }
 
 .rating {
   margin-top: auto;
+}
+
+.vr {
+  margin-top: 3em;
+  margin-bottom: 3em;
+  align-self: auto !important;
 }
 
 .fade-enter-active,
