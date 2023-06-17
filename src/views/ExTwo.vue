@@ -4,13 +4,12 @@
 </template>
 <script lang="ts">
 export default {
-  name: "ExTwo"
-};
+  name: 'ExTwo'
+}
 </script>
 <style>
 p {
   margin-block-end: 0;
   margin-block-start: 0;
 }
-
 </style>

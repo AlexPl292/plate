@@ -1,8 +1,8 @@
 <template>
   <p style="font-size: 5rem">A History Behind the Name</p>
   <p class="fs-1">
-    A lot of historical figures were honored to have this name. They left a huge impart on
-    our world, prooving the fact that only a remarkable person can have such a name.
+    A lot of historical figures were honored to have this name. They left a huge impart on our
+    world, prooving the fact that only a remarkable person can have such a name.
   </p>
   <div class="vr" style="height: 2em"></div>
   <img alt="plate" src="@/assets/ludwig_plate.jpeg" width="512" height="512" />
@@ -23,8 +23,8 @@
 </template>
 <script lang="ts">
 export default {
-  name: "Historical"
-};
+  name: 'Historical'
+}
 </script>
 <style>
 p {
@@ -37,5 +37,4 @@ p {
   margin-bottom: 3em;
   align-self: auto !important;
 }
-
 </style>

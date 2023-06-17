@@ -35,14 +35,14 @@
 </template>
 <script lang="ts">
 export default {
-  name: "MainScreen",
+  name: 'MainScreen',
   props: {
     citata_var: {},
     loaded: {},
     loadedx: {},
     plate_var: {}
   }
-};
+}
 </script>
 <style>
 p {
@@ -78,5 +78,4 @@ p {
   justify-content: flex-end;
   line-height: calc(1em + max(0.5vh, 4px));
 }
-
 </style>
