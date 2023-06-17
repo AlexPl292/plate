@@ -18,7 +18,8 @@
   </div>
 </template>
 <script lang="ts">
-import StarRating from 'vue-star-rating'
+//import StarRating from 'vue-star-rating'
+const StarRating = require('vue-star-rating');
 
 export default {
   props: ['name', 'job', 'review'],
