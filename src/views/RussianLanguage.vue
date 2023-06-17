@@ -16,7 +16,7 @@
   </h3>
   <div class="vr" style="height: 5em"></div>
   <p class="fs-1">
-    The natural feeling of beauty should guide you when you write or say this surename in
+    The natural feeling of beauty should guide you when you write or say this surname in
     any language.
   </p>
 </template>
