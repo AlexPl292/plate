@@ -151,7 +151,6 @@ export default {
           <h3>The 'pleɪt' variation is completely wrong. This should be avoided.</h3>
           <h3>It's fine if you used this pronounciation before</h3>
           <h3>This is why this course was created</h3>
-          <h2>Now you are a better person</h2>
           <div class="vr" style="height: 10em"></div>
 
           <p style="font-size: 5rem">Exercise 1</p>
