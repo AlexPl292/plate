@@ -33,36 +33,38 @@ export default {
 <template>
   <main>
     <!--<div id="demo">-->
-    <div id="introducing">
-      <transition name="fade">
-        <p v-if="loaded">Introducing</p>
-      </transition>
-    </div>
-    <div id="plate">
-      <transition name="plate_t">
-        <p v-if="plate_var">Plate</p>
-      </transition>
-      <p v-if="!plate_var">&nbsp;</p>
-    </div>
-    <div id="citata">
-      <transition name="citata_t">
-        <div v-if="citata_var">
-          <p>
-            "Embrace the power of learning, for it transforms the seeds of curiosity into the
-            blossoming tree of wisdom."
-          </p>
-          <p>Jason Statham</p>
-        </div>
-      </transition>
-      <div v-if="!citata_var">
-        <p>&nbsp;</p>
-        <p>&nbsp;</p>
+    <div id="main_view">
+      <div id="introducing">
+        <transition name="fade">
+          <p v-if="loaded">Introducing</p>
+        </transition>
       </div>
-    </div>
-    <div id="thegreatcourse">
-      <transition name="fadex">
-        <p v-if="loadedx">The Great Course</p>
-      </transition>
+      <div id="plate">
+        <transition name="plate_t">
+          <p v-if="plate_var">Plate</p>
+        </transition>
+        <p v-if="!plate_var">&nbsp;</p>
+      </div>
+      <div id="citata">
+        <transition name="citata_t">
+          <div v-if="citata_var">
+            <p>
+              "Embrace the power of learning, for it transforms the seeds of curiosity into the
+              blossoming tree of wisdom."
+            </p>
+            <p>Jason Statham</p>
+          </div>
+        </transition>
+        <div v-if="!citata_var">
+          <p>&nbsp;</p>
+          <p>&nbsp;</p>
+        </div>
+      </div>
+      <div id="thegreatcourse">
+        <transition name="fadex">
+          <p v-if="loadedx">The&nbsp;Great&nbsp;Course</p>
+        </transition>
+      </div>
     </div>
     <div id="content">
       <transition name="content_t">
@@ -178,7 +180,6 @@ export default {
           </h3>
           <div class="vr" style="height: 5em"></div>
 
-
           <p class="fs-1">
             The natural feeling of beauty should guide you when you write or say this surename in
             any language.
@@ -230,26 +231,30 @@ p {
 #introducing {
   display: flex;
   justify-content: center;
-  font-size: 10rem;
+  font-size: 20vmin;
+  line-height: calc(1em + max(0.5vh, 4px));
 }
 
 #thegreatcourse {
   display: flex;
   justify-content: center;
-  font-size: 10rem;
+  font-size: 20vmin;
+  line-height: calc(1em + max(0.5vh, 4px));
 }
 
 #plate {
   display: flex;
   justify-content: center;
-  font-size: 25rem;
+  font-size: 35vmin;
   margin-block-end: 20px;
   margin-block-start: 20px;
+  line-height: calc(1em + max(0.5vh, 4px));
 }
 
 #citata {
   display: flex;
   justify-content: flex-end;
+  line-height: calc(1em + max(0.5vh, 4px));
 }
 
 .card-body {
@@ -284,7 +289,13 @@ p {
 .reviews {
   width: 100%;
   display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
   justify-content: space-around;
+}
+
+.reviews .card {
+  min-width: 300px;
 }
 
 .rating {
