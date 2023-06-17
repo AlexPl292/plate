@@ -25,9 +25,9 @@
   </div>
 </template>
 <script lang="ts">
-//import StarRating from 'vue-star-rating'
-declare var require: any
-const StarRating = require('vue-star-rating');
+import StarRating from 'vue-star-rating'
+//declare var require: any
+//const StarRating = require('vue-star-rating');
 
 import ReviewCard from '@/views/ReviewCard.vue'
 
