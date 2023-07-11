@@ -89,44 +89,6 @@ p {
   margin-block-start: 0;
 }
 
-#introducing {
-  display: flex;
-  justify-content: center;
-  font-size: 20vmin;
-  line-height: calc(1em + max(0.5vh, 4px));
-}
-
-#thegreatcourse {
-  display: flex;
-  justify-content: center;
-  font-size: 20vmin;
-  line-height: calc(1em + max(0.5vh, 4px));
-}
-
-#plate {
-  display: flex;
-  justify-content: center;
-  font-size: 35vmin;
-  margin-block-end: 20px;
-  margin-block-start: 20px;
-  line-height: calc(1em + max(0.5vh, 4px));
-}
-
-#citata {
-  display: flex;
-  justify-content: flex-end;
-  line-height: calc(1em + max(0.5vh, 4px));
-}
-
-#transcription {
-  display: flex;
-  justify-content: center;
-  font-size: 10rem;
-  width: 100%;
-  /*  margin-block-end: 20px;*/
-  /*  margin-block-start: 20px;*/
-}
-
 #content {
   /*  display: flex;*/
   /*  justify-content: center;*/
