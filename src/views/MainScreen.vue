@@ -57,13 +57,13 @@ p {
   line-height: calc(1em + max(0.5vh, 4px));
 }
 
-@media (max-width: 414px) {
+@media (max-width: 415px) {
   #introducing {
     font-size: 5rem;
   }
 }
 
-@media (min-width: 414px) and (max-width: 768px) {
+@media (min-width: 415px) and (max-width: 768px) {
   #introducing {
     font-size: 6rem;
   }
