@@ -53,8 +53,26 @@ p {
 #introducing {
   display: flex;
   justify-content: center;
-  font-size: 20vmin;
+  font-size: 13rem;
   line-height: calc(1em + max(0.5vh, 4px));
+}
+
+@media (max-width: 414px) {
+  #introducing {
+    font-size: 5rem;
+  }
+}
+
+@media (min-width: 414px) and (max-width: 768px) {
+  #introducing {
+    font-size: 6rem;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  #introducing {
+    font-size: 10rem;
+  }
 }
 
 #thegreatcourse {
