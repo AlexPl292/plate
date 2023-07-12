@@ -57,9 +57,20 @@ p {
   line-height: calc(1em + max(0.5vh, 4px));
 }
 
+#thegreatcourse {
+  display: flex;
+  justify-content: center;
+  font-size: 13rem;
+  line-height: calc(1em + max(0.5vh, 4px));
+}
+
 @media (max-width: 415px) {
   #introducing {
     font-size: 5rem;
+  }
+
+  #thegreatcourse {
+    font-size: 3rem;
   }
 }
 
@@ -67,19 +78,26 @@ p {
   #introducing {
     font-size: 6rem;
   }
-}
 
-@media (min-width: 768px) and (max-width: 1024px) {
-  #introducing {
-    font-size: 10rem;
+  #thegreatcourse {
+    font-size: 4rem;
   }
 }
 
-#thegreatcourse {
-  display: flex;
-  justify-content: center;
-  font-size: 20vmin;
-  line-height: calc(1em + max(0.5vh, 4px));
+@media (min-width: 768px) and (max-width: 1240px) {
+  #introducing {
+    font-size: 10rem;
+  }
+
+  #thegreatcourse {
+    font-size: 6rem;
+  }
+}
+
+@media (min-width: 1240px) and (max-width: 1540px) {
+  #thegreatcourse {
+    font-size: 10rem;
+  }
 }
 
 #plate {
