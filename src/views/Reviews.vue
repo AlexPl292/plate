@@ -59,6 +59,7 @@ p {
 
 .reviews .card {
   min-width: 300px;
+  margin-top: 10px;
 }
 
 .rating {
