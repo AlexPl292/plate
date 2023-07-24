@@ -10,6 +10,8 @@ import RussianLanguage from '@/views/RussianLanguage.vue'
 import Historical from '@/views/Historical.vue'
 </script>
 <script lang="ts">
+import { getDatabase, ref, set, child, get } from 'firebase/database'
+
 export default {
   data() {
     return {
@@ -17,7 +19,10 @@ export default {
       loadedx: false,
       plate_var: false,
       citata_var: false,
-      content_var: false
+      content_var: false,
+      liked: localStorage.getItem('like') || false,
+      showLikes: false,
+      amountOfLikes: -1
     }
   },
   methods: {
@@ -27,10 +32,67 @@ export default {
       setTimeout(() => (this.plate_var = true), 4000)
       setTimeout(() => (this.citata_var = true), 6000)
       setTimeout(() => (this.content_var = true), 6000)
+    },
+    showMyLikes() {
+      if (this.showLikes) {
+        this.showLikes = false
+        return
+      }
+      const db = getDatabase()
+
+      const dbRef = ref(db)
+      get(child(dbRef, `likes`))
+        .then((snapshot) => {
+          if (snapshot.exists()) {
+            const likes = snapshot.val().likes
+            this.amountOfLikes = likes
+          } else {
+            this.amountOfLikes = -2
+          }
+          this.showLikes = true
+        })
+        .catch((error) => {
+          console.error(error)
+        })
+    },
+    like() {
+      if (this.liked) return
+      this.liked = true
+      localStorage.setItem('like', true)
+      const db = getDatabase()
+
+      const dbRef = ref(db)
+      get(child(dbRef, `likes`))
+        .then((snapshot) => {
+          if (snapshot.exists()) {
+            const likes = snapshot.val().likes
+            console.log('Amount of likes' + likes)
+            set(ref(db, 'likes'), {
+              likes: likes + 1
+            })
+          } else {
+            console.log('First like')
+            set(ref(db, 'likes'), {
+              likes: 1
+            })
+          }
+        })
+        .catch((error) => {
+          console.error(error)
+        })
     }
   },
   mounted() {
     this.onLoaded()
+  },
+  computed: {
+    likeClass() {
+      if (this.liked) {
+        return 'btn btn-outline-danger btn-sm'
+      } else {
+        return 'btn btn-outline-primary btn-sm'
+      }
+    }
   }
 }
 </script>
@@ -71,8 +133,13 @@ export default {
 
           <div class="vr" style="height: 10em"></div>
 
-          <p class="fs-1">"Knowledge forms a person"</p>
+          <p class="fs-1" @click="showMyLikes">"Knowledge forms a person"</p>
           <div class="vr" style="height: 10em"></div>
+
+          <button type="button" @click="like" :class="likeClass">♡ Like</button>
+          <p v-if="this.showLikes">{{ this.amountOfLikes }}</p>
+
+          <div class="vr" style="height: 1em"></div>
 
           <p class="fs-5">Made by Alex Plate</p>
           <p class="fs-6">All rights hopefully reserved</p>
