@@ -67,14 +67,10 @@ export default {
           if (snapshot.exists()) {
             const likes = snapshot.val().likes
             console.log('Amount of likes' + likes)
-            set(ref(db, 'likes'), {
-              likes: likes + 1
-            })
+            set(ref(db, 'likes/likes'), likes + 1)
           } else {
             console.log('First like')
-            set(ref(db, 'likes'), {
-              likes: 1
-            })
+            set(ref(db, 'likes/likes'), 1)
           }
         })
         .catch((error) => {
