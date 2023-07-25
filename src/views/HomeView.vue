@@ -20,7 +20,7 @@ export default {
       plate_var: false,
       citata_var: false,
       content_var: false,
-      liked: localStorage.getItem('like') || false,
+      liked: localStorage.getItem('like') == "true",
       showLikes: false,
       amountOfLikes: -1
     }
@@ -58,7 +58,7 @@ export default {
     like() {
       if (this.liked) return
       this.liked = true
-      localStorage.setItem('like', true)
+      localStorage.setItem('like', "true")
       const db = getDatabase()
 
       const dbRef = ref(db)
@@ -133,7 +133,7 @@ export default {
           <div class="vr" style="height: 10em"></div>
 
           <button type="button" @click="like" :class="likeClass">♡ Like</button>
-          <p v-if="this.showLikes">{{ this.amountOfLikes }}</p>
+          <p v-if="showLikes">{{ amountOfLikes }}</p>
 
           <div class="vr" style="height: 1em"></div>
 

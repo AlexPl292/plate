@@ -1,5 +1,6 @@
 {
   "noImplicitAny": false,
+  "noImplicitThis": false,
   "allowJs": true,
   "files": [],
   "references": [
