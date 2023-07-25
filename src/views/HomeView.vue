@@ -106,6 +106,7 @@ export default {
       <transition name="content_t">
         <div v-if="content_var" id="content_internal">
           <!--<VerticalSeparator :size="200" />-->
+          <img alt="plate" src="@/assets/lizard.png" width="100" height="100" />
           <Reviews />
           <div class="vr" style="height: 5em"></div>
           <!--<VerticalSeparator :size="200" />-->
