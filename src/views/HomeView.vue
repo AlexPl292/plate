@@ -23,16 +23,23 @@ export default {
       content_var: false,
       liked: localStorage.getItem('like') == 'true',
       showStats: false,
-      myStats: {}
+      myStats: {},
+      internalMode: localStorage.getItem('itsMe') == 'true'
     }
   },
   methods: {
     onLoaded() {
+      console.log(this.delayTimeBase)
+      console.log(this.internalMode)
       this.loaded = true
-      setTimeout(() => (this.loadedx = true), 2000)
-      setTimeout(() => (this.plate_var = true), 4000)
-      setTimeout(() => (this.citata_var = true), 6000)
-      setTimeout(() => (this.content_var = true), 6000)
+      const delayTimeBase = this.delayTimeBase()
+      setTimeout(() => (this.loadedx = true), 2 * delayTimeBase)
+      setTimeout(() => (this.plate_var = true), 4 * delayTimeBase)
+      setTimeout(() => (this.citata_var = true), 6 * delayTimeBase)
+      setTimeout(() => (this.content_var = true), 6 * delayTimeBase)
+    },
+    delayTimeBase() {
+      return this.internalMode ? 0 : 1000
     },
     showMyLikes() {
       if (this.showStats) {
@@ -93,6 +100,17 @@ export default {
     },
     likePrinter() {
       return JSON.stringify(this.myStats, null, 2).replace(/\n/g, '<br />')
+    },
+    enableInternalMode() {
+      if (!this.internalMode) {
+        this.internalMode = true
+        localStorage.setItem('itsMe', true)
+        alert("Internal mode enabled. Click on 'All rights hopefully reserved' to turn if off.")
+      } else {
+        this.internalMode = false
+        localStorage.setItem('itsMe', false)
+        alert("Internal mode disabled.")
+      }
     }
   },
   mounted() {
@@ -162,7 +180,7 @@ export default {
           <div class="vr" style="height: 1em"></div>
 
           <p class="fs-5">Made by Alex Plate</p>
-          <p class="fs-6">All rights hopefully reserved</p>
+          <p class="fs-6" @click="enableInternalMode">All rights hopefully reserved</p>
         </div>
       </transition>
     </div>
