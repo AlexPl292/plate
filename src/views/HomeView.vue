@@ -53,8 +53,10 @@ export default {
         .then((snapshot) => {
           if (snapshot.exists()) {
             const likes = snapshot.val().likes
+            // @ts-ignore
             this.myStats.likes = likes
           } else {
+            // @ts-ignore
             this.myStats.likes = -1
           }
           this.showStats = true
@@ -66,8 +68,10 @@ export default {
         .then((snapshot) => {
           if (snapshot.exists()) {
             const exam_1 = snapshot.val()
+            // @ts-ignore
             this.myStats.exam_1 = exam_1
           } else {
+            // @ts-ignore
             this.myStats.exam_1 = {}
           }
           this.showStats = true
@@ -104,11 +108,11 @@ export default {
     enableInternalMode() {
       if (!this.internalMode) {
         this.internalMode = true
-        localStorage.setItem('itsMe', true)
+        localStorage.setItem('itsMe', "true")
         alert("Internal mode enabled. Click on 'All rights hopefully reserved' to turn if off.")
       } else {
         this.internalMode = false
-        localStorage.setItem('itsMe', false)
+        localStorage.setItem('itsMe', "false")
         alert("Internal mode disabled.")
       }
     }
