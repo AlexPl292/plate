@@ -34,11 +34,17 @@
   </button>
 </template>
 <script lang="ts">
+import { getDatabase, ref, set, child, get } from 'firebase/database'
+
 export default {
   name: 'exam',
   data() {
     return {
-      exam: localStorage.getItem('exam_1') || 0
+      exam: localStorage.getItem('exam_1') || 0,
+      rickRolled: localStorage.getItem('exam_1/rickRolled') || false,
+      hinted: localStorage.getItem('exam_1/hinted') || false,
+      correctAnswered: localStorage.getItem('exam_1/correctAnswered') || false,
+      restarted: localStorage.getItem('exam_1/restarted') || false
     }
   },
   methods: {
@@ -47,7 +53,7 @@ export default {
     // DONE Add "retake" button
     // DONE Add css on step with hints
     // DONE Make buttons beautiful with correct margins
-    // Send statistic on server
+    // DONE Send statistic on server
     correctCss() {
       if (this.exam == 2) {
         return 'm-1 btn btn-outline-success btn-lg'
@@ -63,22 +69,80 @@ export default {
     reset() {
       this.exam = 0
       this.updateStorage()
+      this.updateReset()
     },
     onCorrect() {
       this.exam = -1
       this.updateStorage()
+      this.updateCorrectAnswered()
     },
     onIncorrect() {
       if (this.exam == 0) {
+        // First wrong answer. Try again
         this.exam = 1
       } else if (this.exam == 1) {
+        // Again wrong answer. Show Hints.
         this.exam = 2
+        this.updateHinted()
       } else if (this.exam == 2) {
+        // You'll be punished
         this.exam = 3
       } else if (this.exam == 3) {
+        // Show rick roll
         this.exam = 4
+        window.open('https://www.youtube.com/watch?v=dQw4w9WgXcQ')
+        this.updateRickRolled()
       }
       this.updateStorage()
+    },
+    updateRickRolled() {
+      if (!this.rickRolled) {
+        this.rickRolled = true
+        localStorage.setItem('exam_1/rickRolled', true)
+        this.updateUsageOnServer('exam_1', 'rickRolled')
+      }
+    },
+    updateHinted() {
+      if (!this.hinted) {
+        this.hinted = true
+        localStorage.setItem('exam_1/hinted', true)
+        this.updateUsageOnServer('exam_1', 'hinted')
+      }
+    },
+    updateCorrectAnswered() {
+      if (!this.correctAnswered) {
+        this.correctAnswered = true
+        localStorage.setItem('exam_1/correctAnswered', true)
+        this.updateUsageOnServer('exam_1', 'correctAnswered')
+      }
+    },
+    updateReset() {
+      if (!this.restarted) {
+        this.restarted = true
+        localStorage.setItem('exam_1/restarted', true)
+        this.updateUsageOnServer('exam_1', 'restarted')
+      }
+    },
+    updateUsageOnServer(generalPath, path) {
+      const db = getDatabase()
+
+      const dbRef = ref(db)
+      get(child(dbRef, generalPath))
+        .then((snapshot) => {
+          if (snapshot.exists()) {
+            const hinted = snapshot.val()[path]
+            if (hinted) {
+              console.log('Hinted: ' + hinted)
+              set(ref(db, generalPath + '/' + path), hinted + 1)
+              return
+            }
+          }
+          console.log('First ' + path)
+          set(ref(db, generalPath + '/' + path), 1)
+        })
+        .catch((error) => {
+          console.error(error)
+        })
     },
     updateStorage() {
       localStorage.setItem('exam_1', this.exam)
@@ -97,7 +161,6 @@ export default {
         return "Okay, this answer IS WRONG. This time you'll be punished if you choose the wrong answer."
       }
       if (this.exam == 4) {
-        window.open('https://www.youtube.com/watch?v=dQw4w9WgXcQ')
         return 'I told you so. Please select an answer.'
       }
       return '&nbsp;'

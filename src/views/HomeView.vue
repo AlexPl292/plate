@@ -8,7 +8,7 @@ import ExOne from '@/views/ExOne.vue'
 import ExTwo from '@/views/ExTwo.vue'
 import RussianLanguage from '@/views/RussianLanguage.vue'
 import Historical from '@/views/Historical.vue'
-import Exam from "@/views/Exam.vue";
+import Exam from '@/views/Exam.vue'
 </script>
 <script lang="ts">
 import { getDatabase, ref, set, child, get } from 'firebase/database'
@@ -21,9 +21,9 @@ export default {
       plate_var: false,
       citata_var: false,
       content_var: false,
-      liked: localStorage.getItem('like') == "true",
-      showLikes: false,
-      amountOfLikes: -1
+      liked: localStorage.getItem('like') == 'true',
+      showStats: false,
+      myStats: {}
     }
   },
   methods: {
@@ -35,8 +35,8 @@ export default {
       setTimeout(() => (this.content_var = true), 6000)
     },
     showMyLikes() {
-      if (this.showLikes) {
-        this.showLikes = false
+      if (this.showStats) {
+        this.showStats = false
         return
       }
       const db = getDatabase()
@@ -46,11 +46,24 @@ export default {
         .then((snapshot) => {
           if (snapshot.exists()) {
             const likes = snapshot.val().likes
-            this.amountOfLikes = likes
+            this.myStats.likes = likes
           } else {
-            this.amountOfLikes = -2
+            this.myStats.likes = -1
           }
-          this.showLikes = true
+          this.showStats = true
+        })
+        .catch((error) => {
+          console.error(error)
+        })
+      get(child(dbRef, `exam_1`))
+        .then((snapshot) => {
+          if (snapshot.exists()) {
+            const exam_1 = snapshot.val()
+            this.myStats.exam_1 = exam_1
+          } else {
+            this.myStats.exam_1 = {}
+          }
+          this.showStats = true
         })
         .catch((error) => {
           console.error(error)
@@ -59,7 +72,7 @@ export default {
     like() {
       if (this.liked) return
       this.liked = true
-      localStorage.setItem('like', "true")
+      localStorage.setItem('like', 'true')
       const db = getDatabase()
 
       const dbRef = ref(db)
@@ -77,6 +90,9 @@ export default {
         .catch((error) => {
           console.error(error)
         })
+    },
+    likePrinter() {
+      return JSON.stringify(this.myStats, null, 2).replace(/\n/g, '<br />')
     }
   },
   mounted() {
@@ -123,7 +139,7 @@ export default {
           <ExTwo />
           <div class="vr" style="height: 10em"></div>
 
-          <Exam/>
+          <Exam />
 
           <div class="vr" style="height: 10em"></div>
 
@@ -139,7 +155,9 @@ export default {
           <div class="vr" style="height: 10em"></div>
 
           <button type="button" @click="like" :class="likeClass">♡ Like</button>
-          <p v-if="showLikes">{{ amountOfLikes }}</p>
+          <div v-if="showStats">
+            <pre v-html="likePrinter()"></pre>
+          </div>
 
           <div class="vr" style="height: 1em"></div>
 
