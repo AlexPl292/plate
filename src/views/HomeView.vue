@@ -8,6 +8,7 @@ import ExOne from '@/views/ExOne.vue'
 import ExTwo from '@/views/ExTwo.vue'
 import RussianLanguage from '@/views/RussianLanguage.vue'
 import Historical from '@/views/Historical.vue'
+import Exam from "@/views/Exam.vue";
 </script>
 <script lang="ts">
 import { getDatabase, ref, set, child, get } from 'firebase/database'
@@ -120,6 +121,10 @@ export default {
           <div class="vr" style="height: 10em"></div>
 
           <ExTwo />
+          <div class="vr" style="height: 10em"></div>
+
+          <Exam/>
+
           <div class="vr" style="height: 10em"></div>
 
           <RussianLanguage />
