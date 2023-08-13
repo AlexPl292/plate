@@ -30,7 +30,7 @@
     class="btn btn-outline-primary m-1"
     @click="reset"
   >
-    Try again
+    Restart
   </button>
 </template>
 <script lang="ts">
