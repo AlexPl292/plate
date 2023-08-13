@@ -2,36 +2,38 @@
   <p style="font-size: 5rem">Examination</p>
   <h3>Please choose the correct pronounciation of the name 'Plate'</h3>
   <div v-html="examText()"></div>
-  <button id="chooseThis" class="m-3" type="button" v-if="exam == 2" @click="onCorrect">
-    plaːtə
-  </button>
-  <button
-    id="correct"
-    type="button"
-    v-if="exam != -1 && exam != 2"
-    :class="correctCss()"
-    @click="onCorrect"
-  >
-    plaːtə
-  </button>
-  <button
-    type="button"
-    v-if="exam != -1"
-    :disabled="exam == 4"
-    :class="incorrectCss()"
-    @click="onIncorrect"
-  >
-    pleɪt
-  </button>
-  <button
-    id="incorrect"
-    type="button"
-    v-if="exam == -1"
-    class="btn btn-outline-primary m-1"
-    @click="reset"
-  >
-    Restart
-  </button>
+  <div  class="d-grid gap-2 col-3 mx-auto">
+    <button id="chooseThis" class="m-1 mt-3" type="button" v-if="exam == 2" @click="onCorrect">
+      plaːtə
+    </button>
+    <button
+      id="correct"
+      type="button"
+      v-if="exam != -1 && exam != 2"
+      :class="correctCss()"
+      @click="onCorrect"
+    >
+      plaːtə
+    </button>
+    <button
+      type="button"
+      v-if="exam != -1"
+      :disabled="exam == 4"
+      :class="incorrectCss()"
+      @click="onIncorrect"
+    >
+      pleɪt
+    </button>
+    <button
+      id="incorrect"
+      type="button"
+      v-if="exam == -1"
+      class="btn btn-outline-primary m-1"
+      @click="reset"
+    >
+      Restart
+    </button>
+  </div>
 </template>
 <script lang="ts">
 import { getDatabase, ref, set, child, get } from 'firebase/database'
@@ -40,7 +42,7 @@ export default {
   name: 'exam',
   data() {
     return {
-      exam: parseInt(localStorage.getItem('exam_1') || "") || 0,
+      exam: parseInt(localStorage.getItem('exam_1') || '') || 0,
       rickRolled: localStorage.getItem('exam_1/rickRolled') || false,
       hinted: localStorage.getItem('exam_1/hinted') || false,
       correctAnswered: localStorage.getItem('exam_1/correctAnswered') || false,
@@ -98,28 +100,28 @@ export default {
     updateRickRolled() {
       if (!this.rickRolled) {
         this.rickRolled = true
-        localStorage.setItem('exam_1/rickRolled', "true")
+        localStorage.setItem('exam_1/rickRolled', 'true')
         this.updateUsageOnServer('exam_1', 'rickRolled')
       }
     },
     updateHinted() {
       if (!this.hinted) {
         this.hinted = true
-        localStorage.setItem('exam_1/hinted', "true")
+        localStorage.setItem('exam_1/hinted', 'true')
         this.updateUsageOnServer('exam_1', 'hinted')
       }
     },
     updateCorrectAnswered() {
       if (!this.correctAnswered) {
         this.correctAnswered = true
-        localStorage.setItem('exam_1/correctAnswered', "true")
+        localStorage.setItem('exam_1/correctAnswered', 'true')
         this.updateUsageOnServer('exam_1', 'correctAnswered')
       }
     },
     updateReset() {
       if (!this.restarted) {
         this.restarted = true
-        localStorage.setItem('exam_1/restarted', "true")
+        localStorage.setItem('exam_1/restarted', 'true')
         this.updateUsageOnServer('exam_1', 'restarted')
       }
     },
@@ -177,7 +179,7 @@ p {
 #chooseThis {
   position: relative;
   height: 60px;
-  width: 200px;
+/*  width: 200px;*/
   border: none;
   outline: none;
   color: white;
