@@ -1,5 +1,5 @@
 <template>
-  <p style="font-size: 5rem">Examination</p>
+  <p style="font-size: 5rem">Test Question</p>
   <h3>Please choose the correct pronounciation of the name 'Plate'</h3>
   <div v-html="examText()"></div>
   <div  class="d-grid gap-2 col-3 mx-auto">
