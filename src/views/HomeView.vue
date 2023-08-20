@@ -9,6 +9,7 @@ import ExTwo from '@/views/ExTwo.vue'
 import RussianLanguage from '@/views/RussianLanguage.vue'
 import Historical from '@/views/Historical.vue'
 import Exam from '@/views/Exam.vue'
+import QuestionTwo from '@/views/QuestionTwo.vue'
 </script>
 <script lang="ts">
 import { getDatabase, ref, set, child, get } from 'firebase/database'
@@ -79,6 +80,21 @@ export default {
         .catch((error) => {
           console.error(error)
         })
+      get(child(dbRef, `exam_2`))
+        .then((snapshot) => {
+          if (snapshot.exists()) {
+            const exam_2 = snapshot.val()
+            // @ts-ignore
+            this.myStats.exam_2 = exam_2
+          } else {
+            // @ts-ignore
+            this.myStats.exam_2 = {}
+          }
+          this.showStats = true
+        })
+        .catch((error) => {
+          console.error(error)
+        })
     },
     like() {
       if (this.liked) return
@@ -108,12 +124,12 @@ export default {
     enableInternalMode() {
       if (!this.internalMode) {
         this.internalMode = true
-        localStorage.setItem('itsMe', "true")
+        localStorage.setItem('itsMe', 'true')
         alert("Internal mode enabled. Click on 'All rights hopefully reserved' to turn if off.")
       } else {
         this.internalMode = false
-        localStorage.setItem('itsMe', "false")
-        alert("Internal mode disabled.")
+        localStorage.setItem('itsMe', 'false')
+        alert('Internal mode disabled.')
       }
     }
   },
@@ -166,6 +182,8 @@ export default {
           <div class="vr" style="height: 10em"></div>
 
           <RussianLanguage />
+
+          <QuestionTwo />
 
           <div class="vr" style="height: 10em"></div>
 

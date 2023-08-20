@@ -17,6 +17,7 @@
     </button>
     <button
       type="button"
+      id="incorrect"
       v-if="exam != -1"
       :disabled="exam == 4"
       :class="incorrectCss()"
@@ -25,7 +26,6 @@
       pleɪt
     </button>
     <button
-      id="incorrect"
       type="button"
       v-if="exam == -1"
       class="btn btn-outline-primary m-1"
