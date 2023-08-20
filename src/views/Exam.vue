@@ -34,7 +34,11 @@
 import { getDatabase, ref, set, child, get } from 'firebase/database'
 
 export default {
+  // eslint-disable-next-line vue/multi-word-component-names
   name: 'exam',
+  props: {
+    internal: Boolean,
+  },
   data() {
     return {
       exam: parseInt(localStorage.getItem('exam_1') || '') || 0,
@@ -93,6 +97,7 @@ export default {
       this.updateStorage()
     },
     updateRickRolled() {
+      if (this.internal) return
       if (!this.rickRolled) {
         this.rickRolled = true
         localStorage.setItem('exam_1/rickRolled', 'true')
@@ -100,6 +105,7 @@ export default {
       }
     },
     updateHinted() {
+      if (this.internal) return
       if (!this.hinted) {
         this.hinted = true
         localStorage.setItem('exam_1/hinted', 'true')
@@ -107,6 +113,7 @@ export default {
       }
     },
     updateCorrectAnswered() {
+      if (this.internal) return
       if (!this.correctAnswered) {
         this.correctAnswered = true
         localStorage.setItem('exam_1/correctAnswered', 'true')
@@ -114,6 +121,7 @@ export default {
       }
     },
     updateReset() {
+      if (this.internal) return
       if (!this.restarted) {
         this.restarted = true
         localStorage.setItem('exam_1/restarted', 'true')

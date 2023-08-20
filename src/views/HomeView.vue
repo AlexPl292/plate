@@ -177,13 +177,13 @@ export default {
           <ExTwo />
           <div class="vr" style="height: 10em"></div>
 
-          <Exam />
+          <Exam :internal="internalMode"/>
 
           <div class="vr" style="height: 10em"></div>
 
           <RussianLanguage />
 
-          <QuestionTwo />
+          <QuestionTwo :internal="internalMode"/>
 
           <div class="vr" style="height: 10em"></div>
 

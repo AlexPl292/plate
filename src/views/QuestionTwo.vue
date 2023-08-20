@@ -36,6 +36,9 @@ import { child, get, getDatabase, ref, set } from 'firebase/database'
 
 export default {
   name: 'QuestionTwo',
+  props: {
+    internal: Boolean,
+  },
   data() {
     return {
       state: 0,
@@ -76,6 +79,7 @@ export default {
   },
   methods: {
     updateCorrectAnswer() {
+      if (this.internal) return
       if (!this.correctAnswered) {
         this.correctAnswered = true
         localStorage.setItem('exam_2/correctAnswered', 'true')
@@ -83,6 +87,7 @@ export default {
       }
     },
     updateAlmostCorrectAnswer() {
+      if (this.internal) return
       if (!this.almostCorrectAnswered) {
         this.almostCorrectAnswered = true
         localStorage.setItem('exam_2/almostCorrectAnswered', 'true')
@@ -90,6 +95,7 @@ export default {
       }
     },
     updateRestarted() {
+      if (this.internal) return
       if (!this.restarted) {
         this.restarted = true
         localStorage.setItem('exam_2/restarted', 'true')
