@@ -23,7 +23,7 @@ const firebaseConfig = {
   messagingSenderId: '824528395743',
   appId: '1:824528395743:web:f3ef6ef6c1ee8e1583386a',
   measurementId: 'G-8RBXRMPDLB',
-  databaseURL: "https://plate-e7db4-default-rtdb.firebaseio.com",
+  databaseURL: 'https://plate-e7db4-default-rtdb.firebaseio.com'
 }
 
 // Initialize Firebase

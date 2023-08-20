@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import MobileOrBrowser from "@/views/MobileOrBrowser.vue";
+import MobileOrBrowser from '@/views/MobileOrBrowser.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),

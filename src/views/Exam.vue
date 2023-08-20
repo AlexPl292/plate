@@ -2,7 +2,7 @@
   <p style="font-size: 5rem">Test Question</p>
   <h3>Please choose the correct pronounciation of the name 'Plate'</h3>
   <div v-html="examText()"></div>
-  <div  class="d-grid gap-2 col-3 mx-auto">
+  <div class="d-grid gap-2 col-3 mx-auto">
     <button id="chooseThis" class="m-1 mt-3" type="button" v-if="exam == 2" @click="onCorrect">
       plaːtə
     </button>
@@ -25,12 +25,7 @@
     >
       pleɪt
     </button>
-    <button
-      type="button"
-      v-if="exam == -1"
-      class="btn btn-outline-primary m-1"
-      @click="reset"
-    >
+    <button type="button" v-if="exam == -1" class="btn btn-outline-primary m-1" @click="reset">
       Restart
     </button>
   </div>
@@ -179,7 +174,7 @@ p {
 #chooseThis {
   position: relative;
   height: 60px;
-/*  width: 200px;*/
+  /*  width: 200px;*/
   border: none;
   outline: none;
   color: white;

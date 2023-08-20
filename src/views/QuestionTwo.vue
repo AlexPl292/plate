@@ -4,7 +4,12 @@
   <h3>Плат_</h3>
   <div>
     <div v-if="!answered" class="container">
-      <div @mouseover="onHover" class="option running m-1 me-3" :class="runningClass" @click="onAlmostRight">
+      <div
+        @mouseover="onHover"
+        class="option running m-1 me-3"
+        :class="runningClass"
+        @click="onAlmostRight"
+      >
         <p v-if="!hide" class="fs-1">е</p>
         <p v-if="showKnife" class="fs-1 knife">🗡</p>
       </div>
@@ -27,7 +32,7 @@
 </template>
 
 <script lang="ts">
-import { child, get, getDatabase, ref, set } from "firebase/database";
+import { child, get, getDatabase, ref, set } from 'firebase/database'
 
 export default {
   name: 'QuestionTwo',
@@ -46,7 +51,7 @@ export default {
       answered: false,
       correctAnswered: localStorage.getItem('exam_2/correctAnswered') || false,
       almostCorrectAnswered: localStorage.getItem('exam_2/almostCorrectAnswered') || false,
-      restarted: localStorage.getItem('exam_2/restarted') || false,
+      restarted: localStorage.getItem('exam_2/restarted') || false
     }
   },
   computed: {
