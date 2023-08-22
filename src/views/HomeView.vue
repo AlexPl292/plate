@@ -183,6 +183,8 @@ export default {
 
           <RussianLanguage />
 
+          <div class="vr" style="height: 5em"></div>
+
           <QuestionTwo :internal="internalMode"/>
 
           <div class="vr" style="height: 10em"></div>
