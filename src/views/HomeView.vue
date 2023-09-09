@@ -4,8 +4,6 @@ import Reviews from '@/views/Reviews.vue'
 import MainScreen from '@/views/MainScreen.vue'
 import Transcription from '@/views/Transcription.vue'
 import TerribleMistake from '@/views/TerribleMistake.vue'
-import ExOne from '@/views/ExOne.vue'
-import ExTwo from '@/views/ExTwo.vue'
 import RussianLanguage from '@/views/RussianLanguage.vue'
 import Historical from '@/views/Historical.vue'
 import Exam from '@/views/Exam.vue'
@@ -169,12 +167,6 @@ export default {
           <div class="vr" style="height: 10em"></div>
 
           <TerribleMistake />
-          <div class="vr" style="height: 10em"></div>
-
-          <ExOne />
-          <div class="vr" style="height: 10em"></div>
-
-          <ExTwo />
           <div class="vr" style="height: 10em"></div>
 
           <Exam :internal="internalMode"/>
