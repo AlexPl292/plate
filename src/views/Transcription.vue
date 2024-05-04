@@ -6,7 +6,7 @@
   <h3>Try pronouncing it yourself</h3>
   <h3>This should sound light and fresh</h3>
   <br />
-  <h3>A lot of people say that you can get a feeling of the light breeze of the summer evening</h3>
+  <h3>Many people say that you can get a feeling of the light breeze of the summer evening</h3>
   <h3>if you pronounce this surname completely right</h3>
 </template>
 <script lang="ts">

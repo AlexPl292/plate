@@ -1,6 +1,6 @@
 <template>
   <p style="font-size: 5rem">Test Question</p>
-  <h3>Please choose the correct pronounciation of the name 'Plate'</h3>
+  <h3>Please choose the correct pronunciation of the name 'Plate'</h3>
   <div v-html="examText()"></div>
   <div class="d-grid gap-2 col-3 mx-auto">
     <button id="chooseThis" class="m-1 mt-3" type="button" v-if="exam == 2" @click="onCorrect">
