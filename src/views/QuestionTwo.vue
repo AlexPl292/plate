@@ -1,5 +1,5 @@
 <template>
-  <p style="font-size: 5rem">Test Question</p>
+  <p style="font-size: 5rem" class="center-text">Test Question</p>
   <h3>Choose the correct ending</h3>
   <h3>Плат_</h3>
   <div>

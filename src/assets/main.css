@@ -26,3 +26,7 @@ a,
     align-items: center;
   }
 }
+
+.center-text {
+  text-align: center;
+}

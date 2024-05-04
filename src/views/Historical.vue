@@ -1,6 +1,6 @@
 <template>
-  <p style="font-size: 5rem">A History Behind the Name</p>
-  <p class="fs-1">
+  <p style="font-size: 5rem" class="center-text">A History Behind the Name</p>
+  <p class="fs-1 center-text">
     Many historical figures were honored to have this name. They left a huge impact on our
     world, proving the fact that only a remarkable person can carry such a name.
   </p>
@@ -19,7 +19,7 @@
   <div class="vr" style="height: 1em"></div>
   <img alt="plate" src="@/assets/Liolaemus_platei.jpg" width="512" height="512" />
   <p class="fs-1">Liolaemus platei</p>
-  <p class="fs-2">Braided tree iguana named in honor of Ludwig Plate</p>
+  <p class="fs-2 center-text">Braided tree iguana named in honor of Ludwig Plate</p>
 </template>
 <script lang="ts">
 export default {
